@@ -67,6 +67,8 @@ class SpotifyClone:
         end_point = 'track/download'
         url = self.api_url + end_point
         response = requests.get(url=url, headers=self.headers, timeout=20, params=query_string)
+        if response.status_code != 200:
+            return "API hits expired"
         response_data = response.json()
 
         audio_url = response_data.get('youtubeVideo',{}).get('audio', [{}])[0].get('url', 'No URL')
@@ -78,6 +80,8 @@ class SpotifyClone:
         url = self.api_url + end_point
         query_string = {'trackId': song_id}
         response = requests.get(url=url, headers=self.headers, timeout=20, params=query_string)
+        if response.status_code != 200:
+            return "API hits expired"
         response_data = response.json()
 
         # track_id, track_name, duration_text, cover_url, artists_name
@@ -103,6 +107,8 @@ class SpotifyClone:
         url = self.api_url + end_point
         query_string = {'artistId': artist_id}
         response = requests.get(url=url, headers=self.headers, timeout=20, params=query_string)
+        if response.status_code != 200:
+            return "API hits expired"
         response_data = response.json()
 
         # artist_id, artist_name, poster_url, montlyListeners,
@@ -136,6 +142,8 @@ class SpotifyClone:
         url = self.api_url + end_point
         query_string = {'term': search_query, 'type': 'track'}
         response = requests.get(url=url, headers=self.headers, timeout=20, params=query_string)
+        if response.status_code != 200:
+            return "API hits expired"
         response_data = response.json()
 
         search_results_count = len(response_data['tracks']['items'])

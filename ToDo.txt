@@ -1,0 +1,2 @@
+Implement unittest for SpotifyClone class methods
+Implement pop-up for message if response.status_code != 200 for all the views which fetch data from SpotifyClone class

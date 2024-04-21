@@ -12,6 +12,8 @@ RUN pip install --no-cache-dir -r /requirements.txt
 
 COPY . .
 
-RUN /bin/bash -c "chmod a+x bin/run.sh"
+RUN chmod a+x bin/run.sh
 
 EXPOSE 8000
+
+ENTRYPOINT [ "bin/run.sh" ]

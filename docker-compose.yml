@@ -5,8 +5,5 @@ services:
     build:
       context: .
       dockerfile: DockerFile
-
-    command: /bin/bash -c bin/run.sh
-
     ports:
-      - '8080:8000'
+      - '80:8000'

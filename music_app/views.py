@@ -45,6 +45,8 @@ class Music(View):
         """Logic to handle the get requests in the music view"""
         _spotify_clone = request.spotify_clone
         track_metadata = self._get_track_metadata(_spotify_clone, song_id)
+        if isinstance(track_metadata, str):
+            return redirect('/')
         return render(request, template_name='music.html', context=track_metadata)
 
 
@@ -58,6 +60,8 @@ class Profile(View):
         """Logic to handle the get requests in the profile view"""
         _spotify_clone = request.spotify_clone
         artist_profile_data = self._get_artist_profile_data(_spotify_clone, artist_id)
+        if isinstance(artist_profile_data, str):
+            return redirect('/')
         return render(request=request, template_name='profile.html', context=artist_profile_data)
 
 
@@ -72,6 +76,8 @@ class Search(View):
         _spotify_clone = request.spotify_clone
         search_query = request.POST.get('search_query')
         search_result = self._get_search_data(_spotify_clone, search_query)
+        if isinstance(search_result,str):
+            return redirect('/')
         return render(request, 'search.html', search_result)
 
 
