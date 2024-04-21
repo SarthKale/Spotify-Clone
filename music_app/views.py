@@ -20,6 +20,9 @@ class Index(View):
         _spotify_clone = request.spotify_clone
         artists_data = self._get_top_artists_data(_spotify_clone)
         tracks_data = self._get_top_tracks_data(_spotify_clone)
+        if (artists_data == [{}]) or (tracks_data == [{}]):
+            return render(request=request, template_name='test_index.html')
+
         first_six_tracks_data = tracks_data[:6]
         second_six_tracks_data = tracks_data[6:12]
         third_six_tracks_data = tracks_data[12:18]

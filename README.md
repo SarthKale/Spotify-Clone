@@ -1,9 +1,23 @@
-
 ![Spotify-Clone Logo](https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png)
 
 # Spotify-Clone
 
-Spotify-Clone is a web application built using Python and the Django framework. It aims to replicate the basic functionality and user experience of the popular music streaming service Spotify. With Spotify-Clone, users can listen to music, discover tracks, and much more.
+The Spotify-Clone aims to replicate the core functionalities and user interface of the popular music streaming service, Spotify. This platform allows users to enjoy music, explore new tracks, and various other activities.
+
+## Requirements
+
+- docker
+- docker-compose
+
+## Getting Started
+To clone this repository, run the following in a terminal.
+
+```bash
+# Clone the repository
+git clone https://github.com/SarthKale/spotify-clone.git
+# Navigate to the project directory:
+cd spotify-clone
+```
 
 ## Features
 
@@ -12,42 +26,49 @@ Spotify-Clone is a web application built using Python and the Django framework. 
 - **Search Functionality**: Easily search for songs.
 - **Responsive Design**: The app is optimized for both desktop and mobile devices.
 
-## Technologies Used
+## Run Application
+You can run this application in 2 ways - 1. Locally, 2. Inside Docker.
 
-- **Python**: The core programming language used for backend development.
-- **Django**: A high-level Python web framework for building web applications.
-- **HTML/CSS**: Frontend languages used for creating the user interface.
-- **JavaScript**: Used for implementing dynamic behavior on the frontend.
-- **SQLite**: Lightweight database management system for storing user data.
-- **Bootstrap**: Frontend framework for building responsive and mobile-first websites.
+### Run Locally
 
-## Installation
+Make sure you have python3.9 or higher installed on your system.
+```bash
+# Create a virtual environment
+python -m venv env
+# Activate the virtual environment
+source env/bin/activate
+# Install dependencies
+pip install -r requirements.txt
+# Run migrations
+python manage.py migrate
+# Start the development server
+python manage.py runserver
+```
 
-   ```bash
-   # Clone the repository
-   git clone https://github.com/your_username/spotify-clone.git
-   # Navigate to the project directory:
-   cd spotify-clone
-   # Create a virtual environment
-   python -m venv env
-   # Activate the virtual environment
-   source env/bin/activate
-   # Install dependencies
-   pip install -r requirements.txt
-   # Run migrations
-   python manage.py migrate
-   # Start the development server
-   python manage.py runserver
-   ```
+### Run Inside a Docker Container
+
+```bash
+docker-compose -f docker-compose.yml build
+docker-compose -f docker-compose.yml up
+```
+
+Open your browser, type `localhost` into the search bar, and press enter.
 
 ## Usage
 
 - Open your web browser and navigate to http://localhost:8000 to access the app.
 - **Sign Up**: Create a new account by providing your email address and password.
-- **Log In**: Log in to your existing account with your credentials.
+- **Log In**: Log in to your account with the credentials.
 - **Explore**: Discover new music by searching for artists or tracks.
-- **Stream Music**: Click on a song to start streaming instantly.
+- **Stream Music**: Click on a song to start streaming and hit the play button.
 
-## Credits
+## Technologies Used
 
-This project was created by **_Sarthak Kale_**
+- **Python**: Backend programming language.
+- **Django**: Python web framework.
+- **HTML/CSS/JavaScript**: Used for creating the frontend.
+- **Bootstrap**: For responsive design.
+
+## Author
+
+Sarthak Kale

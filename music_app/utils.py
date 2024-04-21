@@ -21,6 +21,8 @@ class SpotifyClone:
         end_point = 'chart/artists/top'
         url = self.api_url+end_point
         response = requests.get(url=url, headers=self.headers, timeout=20)
+        if response.status_code != 200:
+            return [{}]
         response_data = response.json()
 
         artists_info = []
@@ -40,6 +42,8 @@ class SpotifyClone:
         end_point = 'chart/tracks/top'
         url = self.api_url + end_point
         response = requests.get(url=url, headers=self.headers, timeout=20)
+        if response.status_code != 200:
+            return [{}]
         response_data = response.json()
 
         track_details = []
